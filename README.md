@@ -1,4 +1,4 @@
-# VidyutTech
+# Wishify
 <h2>Description</h2>
 
 The Wishlist Management System is a robust software solution developed in just one day using Spring Boot. Leveraging the power of Spring Security, 
