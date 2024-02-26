@@ -7,6 +7,7 @@ import com.wishify.model.WishListItem;
 import com.wishify.repo.UserRepo;
 import com.wishify.repo.WishListItemRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public WishListItem addWishListItem(WishListItem item) {
+    public WishListItem addWishListItem(WishListItem item, String email) {
+
+        User user =  userRepo.findByEmail(email).get();
+        item.setUser(user);
         return wishListItemRepo.save(item);
     }
 

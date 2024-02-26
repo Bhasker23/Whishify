@@ -29,7 +29,7 @@ public class User {
     private String city;
     private String state;
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<WishListItem> whishlist = new ArrayList<>();
 

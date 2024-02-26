@@ -1,5 +1,6 @@
 package com.wishify.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,6 +20,7 @@ public class WishListItem {
     private Double price;
     private String description;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_phoneNo", nullable = false)
     private User user;

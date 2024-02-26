@@ -2,6 +2,7 @@ package com.wishify.services;
 
 import com.wishify.model.User;
 import com.wishify.model.WishListItem;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.stylesheets.LinkStyle;
 
@@ -13,7 +14,7 @@ public interface UserService {
 
     public String SignUpUser(User user);
 
-    public WishListItem addWishListItem(WishListItem item);
+    public WishListItem addWishListItem(WishListItem item, String email);
 
     public List<WishListItem> getAllWishList();
 
