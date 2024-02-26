@@ -25,5 +25,4 @@ public class WishListItem {
     @JoinColumn(name = "user_phoneNo", nullable = false)
     private User user;
 
-
 }

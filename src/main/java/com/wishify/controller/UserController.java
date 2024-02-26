@@ -4,7 +4,6 @@ import com.wishify.model.User;
 import com.wishify.model.WishListItem;
 import com.wishify.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.core.Authentication;
@@ -37,7 +36,7 @@ public class UserController {
         userEmail = user.getEmail();
         System.out.println(user.getEmail());
 
-        return new ResponseEntity<>(userService.SignUpUser(user), HttpStatus.CREATED);
+        return new ResponseEntity<>(userService.signUpUser(user), HttpStatus.CREATED);
     }
 
     @GetMapping("/loginIn")

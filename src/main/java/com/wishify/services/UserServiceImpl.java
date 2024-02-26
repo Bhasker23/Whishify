@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final WishListItemRepo wishListItemRepo;
 
     @Override
-    public String SignUpUser(User user) {
+    public String signUpUser(User user) {
         userRepo.save(user);
         return "Congratulations !! you have Successfully Signup with registered email " + user.getEmail();
     }
