@@ -20,8 +20,8 @@ public class WishListItem {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "User.id")
-    @JsonIgnore
+    @JoinColumn(name = "user_phoneNo", nullable = false)
     private User user;
+
 
 }

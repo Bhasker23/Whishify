@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 //import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -30,14 +32,24 @@ public class UserController {
 //    @GetMapping("/loginIn")
 //    public ResponseEntity<String> logIn(Authentication auth){
 //
-////        User user = userService.getUserDetailsByEmail(auth.getName());
+//        User user = userService.getUserDetailsByEmail(auth.getName());
 //
 //        return  new ResponseEntity<>(" Logged In successfully ", HttpStatus.OK);
 //    }
 
     @PostMapping("/addWishListItem")
     public ResponseEntity<WishListItem> addWishList(@RequestBody WishListItem item){
-        System.out.println("In controller");
+
         return  new ResponseEntity<>(userService.addWishListItem(item),HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getWishList")
+    public ResponseEntity<List<WishListItem>> getWishList(){
+        return  new ResponseEntity<>(userService.getAllWishList(),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/wishList/{id}")
+    public ResponseEntity<String> deleteWishList(@PathVariable Integer id){
+        return new ResponseEntity<>(userService.deleteWishListById(id), HttpStatus.OK);
     }
 }

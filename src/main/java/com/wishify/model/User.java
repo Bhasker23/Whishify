@@ -1,5 +1,6 @@
 package com.wishify.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -28,8 +29,8 @@ public class User {
     private String city;
     private String state;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonBackReference
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<WishListItem> whishlist = new ArrayList<>();
 
 }
